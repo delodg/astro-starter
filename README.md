@@ -2,6 +2,18 @@
 
 An enhanced Astro starter template with a modern, optimized CSS reset and Tailwind v4 integration. This starter provides a solid foundation for creating accessible, responsive, and visually consistent web applications.
 
+## 📋 Table of Contents
+
+- [Getting Started](#-getting-started)
+- [Features](#-features)
+- [Project Structure](#-project-structure)
+- [CSS Reset Features](#-css-reset-features)
+- [Tailwind with Astro Guide](#-tailwind-with-astro-guide)
+- [Best Practices](#-best-practices)
+- [Commands](#-commands)
+- [Updating Dependencies](#-keeping-dependencies-updated)
+- [Recommended Resources](#-recommended-resources)
+
 ## 🚀 Getting Started
 
 ### Option 1: Clone this repository
@@ -62,6 +74,18 @@ pnpm install
 └── package.json
 ```
 
+## 🔍 CSS Reset Features
+
+The included CSS reset (`src/styles/global.css`) provides:
+
+- **Minimal but Complete**: Only the essentials with no unnecessary styles
+- **Modern Viewport Handling**: Using `dvh` for better mobile support
+- **Enhanced Typography**: Text balancing and pretty wrapping
+- **Form Element Normalization**: Consistent form elements across browsers
+- **Accessibility Improvements**: Better focus states and reduced motion support
+- **CSS Variables**: For colors, with RGB format for Tailwind compatibility
+- **Inter & Monospace Fonts**: Ready to use
+
 ## 🎨 Tailwind with Astro Guide
 
 ### Getting Started with Tailwind
@@ -72,31 +96,6 @@ This starter comes with Tailwind v4 pre-configured. Here are some tips to get th
 2. **Leverage the reset CSS** - it's designed to work harmoniously with Tailwind
 3. **Check the [Tailwind v4 docs](https://tailwindcss.com/docs)** for the latest features and syntax
 
-### Best Practices
-
-- **Component-first approach**: Create reusable Astro components with Tailwind classes
-- **Use @apply sparingly**: Prefer inline Tailwind classes for better maintainability
-- **Leverage CSS variables** from the reset for consistent theming
-- **Group related classes** for better readability:
-  ```html
-  <button
-    class="
-    /* Positioning & Layout */
-    relative block w-full
-    /* Typography */
-    font-medium text-sm
-    /* Visual styling */
-    bg-blue-500 hover:bg-blue-600 text-white rounded-lg
-    /* Spacing & Size */
-    px-4 py-2 mt-3
-    /* Interactivity */
-    transition-colors duration-200
-  "
-  >
-    Button Text
-  </button>
-  ```
-
 ### Dark Mode
 
 The CSS reset includes dark mode variables. Use Tailwind's dark mode utilities to enable dark mode support:
@@ -106,12 +105,6 @@ The CSS reset includes dark mode variables. Use Tailwind's dark mode utilities t
   <!-- Content -->
 </div>
 ```
-
-### Optimizing for Production
-
-- Use the `@astro/tailwind` integration (already included)
-- The build process automatically removes unused styles
-- For larger projects, consider code-splitting your styles
 
 ### Common Component Patterns
 
@@ -137,17 +130,50 @@ The CSS reset includes dark mode variables. Use Tailwind's dark mode utilities t
 </button>
 ```
 
-## 🔍 CSS Reset Features
+## 👍 Best Practices
 
-The included CSS reset (`src/styles/global.css`) provides:
+### Coding Best Practices
 
-- **Minimal but Complete**: Only the essentials with no unnecessary styles
-- **Modern Viewport Handling**: Using `dvh` for better mobile support
-- **Enhanced Typography**: Text balancing and pretty wrapping
-- **Form Element Normalization**: Consistent form elements across browsers
-- **Accessibility Improvements**: Better focus states and reduced motion support
-- **CSS Variables**: For colors, with RGB format for Tailwind compatibility
-- **Inter & Monospace Fonts**: Ready to use
+1. **Component-first approach**: Create reusable Astro components with Tailwind classes
+2. **Use @apply sparingly**: Prefer inline Tailwind classes for better maintainability
+3. **Leverage CSS variables** from the reset for consistent theming
+4. **Group related classes** for better readability:
+   ```html
+   <button
+     class="
+     /* Positioning & Layout */
+     relative block w-full
+     /* Typography */
+     font-medium text-sm
+     /* Visual styling */
+     bg-blue-500 hover:bg-blue-600 text-white rounded-lg
+     /* Spacing & Size */
+     px-4 py-2 mt-3
+     /* Interactivity */
+     transition-colors duration-200
+   "
+   >
+     Button Text
+   </button>
+   ```
+
+### Optimization Best Practices
+
+1. **Use the `@astro/tailwind` integration** (already included)
+2. **Enable content-visibility**: For large pages with many components
+3. **Implement view transitions**: For smoother page navigation
+4. **The build process automatically removes unused styles**
+5. **For larger projects, consider code-splitting your styles**
+
+### Maintenance Best Practices
+
+1. **Read Release Notes**: Always check release notes for breaking changes before updating
+   - [Astro Releases](https://github.com/withastro/astro/releases)
+   - [Tailwind CSS Releases](https://github.com/tailwindlabs/tailwindcss/releases)
+2. **Update in Stages**: Update major frameworks separately to isolate any issues
+3. **Test After Updating**: Run your application thoroughly after updates
+4. **Use Version Control**: Commit before updating to easily revert if needed
+5. **Maintain Documentation**: Update your project's documentation when adding new patterns
 
 ## 🧞 Commands
 
@@ -162,13 +188,71 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `pnpm astro -- --help` | Get help using the Astro CLI                     |
 
+## 🔄 Keeping Dependencies Updated
+
+### Checking Current Versions
+
+To see your current package versions:
+
+```sh
+pnpm list astro tailwindcss
+```
+
+Or check all outdated packages:
+
+```sh
+pnpm outdated
+```
+
+### Upgrading Packages
+
+#### Upgrading Astro
+
+```sh
+# Update to the latest version
+pnpm up astro --latest
+
+# For major version upgrades, check the migration guide:
+# https://docs.astro.build/en/guides/upgrade-astro/
+```
+
+#### Upgrading Tailwind CSS
+
+```sh
+# Update Tailwind and its dependencies
+pnpm up tailwindcss postcss autoprefixer --latest
+```
+
+#### Upgrading All Dependencies
+
+```sh
+# Update all dependencies (use with caution)
+pnpm up --latest
+```
+
+### Update package.json
+
+For Tailwind plugins, update them in package.json:
+
+```
+"devDependencies": {
+  "@astrojs/tailwind": "^x.y.z",
+  "tailwindcss": "^4.x.y",
+  // Other dependencies
+}
+```
+
+### Automated Dependency Updates
+
+Consider setting up [Renovate](https://github.com/renovatebot/renovate) or [Dependabot](https://github.com/dependabot) for automated dependency update PRs.
+
 ## 📚 Recommended Resources
 
 ### Tailwind CSS
 
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [Tailwind CSS Cheat Sheet](https://tailwindcomponents.com/cheatsheet/)
-- [Headless UI Components](https://headlessui.com/) - Unstyled, accessible components for Tailwind
+- [Headless UI Components](https://headlessui.com/) - Accessible, unstyled components for Tailwind
 - [Heroicons](https://heroicons.com/) - Beautiful hand-crafted SVG icons
 
 ### Astro
