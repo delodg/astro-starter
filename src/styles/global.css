@@ -1,0 +1,166 @@
+@import "tailwindcss";
+/* Minimal Reset optimized for Tailwind v4 */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base HTML setup */
+html {
+  height: 100%;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+  tab-size: 4;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Code elements */
+code,
+pre,
+kbd,
+samp {
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.9em;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  /* Dynamic viewport height for mobile */
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  color: rgb(var(--color-text, 0 0 0) / 1);
+  background: rgb(var(--color-background, 255 255 255) / 1);
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  margin-block: 1lh;
+  text-wrap: pretty;
+}
+
+/* Lists */
+ul,
+ol {
+  list-style-position: inside;
+}
+
+/* Links */
+a {
+  color: currentColor;
+  text-underline-offset: 0.15em;
+}
+
+/* Media handling */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Form elements */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+/* Remove built-in form typography styles */
+input:where([type="color"], [type="date"], [type="datetime"], [type="datetime-local"],
+  [type="email"], [type="month"], [type="number"], [type="password"], [type="search"],
+  [type="tel"], [type="text"], [type="time"], [type="url"], [type="week"]),
+textarea {
+  appearance: none;
+}
+
+/* Focus states */
+:focus-visible {
+  outline: 2px solid rgb(var(--color-focus, 59 130 246) / 1);
+  outline-offset: 3px;
+}
+
+/* Target element scrolling adjustment */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Support for Tailwind v4 CSS variables */
+:root {
+  --color-text: 0 0 0;
+  --color-background: 255 255 255;
+  --color-focus: 59 130 246;
+
+  --tw-content: "";
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+}
+
+/* Dark mode support with CSS variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: 255 255 255;
+    --color-background: 23 23 23;
+    --color-focus: 96 165 250;
+  }
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 2px solid CanvasText;
+  }
+}
