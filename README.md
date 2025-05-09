@@ -2,9 +2,38 @@
 
 An enhanced Astro starter template with a modern, optimized CSS reset and Tailwind v4 integration. This starter provides a solid foundation for creating accessible, responsive, and visually consistent web applications.
 
+## 🚀 Getting Started
+
+### Option 1: Clone this repository
+
 ```sh
-# Create a new project with this starter
-pnpm create astro@latest my-astro-project -- --template username/astro-starter
+# Clone this repository
+git clone https://github.com/yourusername/astro-starter.git my-project
+cd my-project
+
+# Install dependencies
+pnpm install
+
+# Start the development server
+pnpm dev
+```
+
+### Option 2: Use as a template (if published on GitHub)
+
+First, make sure this repository is set as a template in GitHub settings.
+
+```sh
+# Create a new project using this template
+pnpm create astro@latest my-project -- --template delodg/astro-starter
+```
+
+### Option 3: Create a local copy
+
+```sh
+# Copy existing project to a new directory
+cp -r path/to/astro-starter my-new-project
+cd my-new-project
+pnpm install
 ```
 
 ## ✨ Features
@@ -49,14 +78,14 @@ The included CSS reset (`src/styles/global.css`) provides:
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                    | Action                                           |
-| :------------------------- | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm run dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm run build`           | Build your production site to `./dist/`          |
-| `pnpm run preview`         | Preview your build locally, before deploying     |
-| `pnpm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm run astro -- --help` | Get help using the Astro CLI                     |
+| Command                | Action                                           |
+| :--------------------- | :----------------------------------------------- |
+| `pnpm install`         | Installs dependencies                            |
+| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
+| `pnpm build`           | Build your production site to `./dist/`          |
+| `pnpm preview`         | Preview your build locally, before deploying     |
+| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `pnpm astro -- --help` | Get help using the Astro CLI                     |
 
 ## 👀 Learn More
 
